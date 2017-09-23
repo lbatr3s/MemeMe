@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Meme Editor View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fa5-Lc-Sfo">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Library" id="ahr-Ms-yhN">
+                                        <connections>
+                                            <action selector="didTapPickAnImageFromAlbum:" destination="BYZ-38-t0r" id="iEK-mY-P0g"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="camera" id="UOn-zd-5ak">
+                                        <connections>
+                                            <action selector="didTapPickAnImageFromCamera:" destination="BYZ-38-t0r" id="eCU-wO-jWA"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N54-SN-2G1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                            </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XWY-Dt-xz7">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="vaT-dj-e6U"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="rW0-Tu-Wbk"/>
+                                    <barButtonItem systemItem="cancel" id="tSQ-e2-K7J"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="N54-SN-2G1" secondAttribute="trailing" id="6xm-YO-Is6"/>
+                            <constraint firstItem="fa5-Lc-Sfo" firstAttribute="top" secondItem="N54-SN-2G1" secondAttribute="bottom" id="DdU-Uu-0tH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fa5-Lc-Sfo" secondAttribute="bottom" id="ISB-ka-knN"/>
+                            <constraint firstItem="XWY-Dt-xz7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZZ5-Wk-8QH"/>
+                            <constraint firstItem="N54-SN-2G1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dGS-AS-4E9"/>
+                            <constraint firstAttribute="trailing" secondItem="XWY-Dt-xz7" secondAttribute="trailing" id="eUe-iB-GA7"/>
+                            <constraint firstAttribute="trailing" secondItem="fa5-Lc-Sfo" secondAttribute="trailing" id="fCu-qm-6Sx"/>
+                            <constraint firstItem="XWY-Dt-xz7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="jhb-wI-0OF"/>
+                            <constraint firstItem="fa5-Lc-Sfo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="n6t-As-8aE"/>
+                            <constraint firstItem="N54-SN-2G1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pTK-Sv-bYO"/>
+                            <constraint firstItem="N54-SN-2G1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="qgg-as-Lvk"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="pCW-gh-Pb9">
+                        <barButtonItem key="leftBarButtonItem" title="Share" id="SNn-Am-YLC"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancelButton" destination="tSQ-e2-K7J" id="Q4K-XN-srL"/>
+                        <outlet property="pickFromCameraButton" destination="UOn-zd-5ak" id="Si2-fQ-9yk"/>
+                        <outlet property="pickFromLibraryButton" destination="ahr-Ms-yhN" id="MuB-oA-eye"/>
+                        <outlet property="shareButton" destination="vaT-dj-e6U" id="P8e-Nq-z4g"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="476" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>
