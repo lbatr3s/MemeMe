@@ -30,37 +30,46 @@
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KIF-a1-Eob">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="dN5-nA-bV0">
-                                                <rect key="frame" x="16" y="16" width="343" height="527"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XB7-24-VUC" userLabel="TextFieldContainer">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ux6-re-1EH">
-                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="263.5"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sxC-iX-UkY">
+                                                        <rect key="frame" x="16" y="8" width="343" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                                         <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="58l-g1-8na"/>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="aiJ-T0-cki"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="343" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-lO-v0W">
-                                                        <rect key="frame" x="0.0" y="263.5" width="343" height="263.5"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ekf-AR-7bx">
+                                                        <rect key="frame" x="16" y="534" width="343" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done"/>
                                                         <connections>
-                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="wWu-GN-TK9"/>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="poK-dW-QV3"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
-                                            </stackView>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="sxC-iX-UkY" secondAttribute="trailing" constant="16" id="59t-WL-mmW"/>
+                                                    <constraint firstItem="ekf-AR-7bx" firstAttribute="leading" secondItem="XB7-24-VUC" secondAttribute="leading" constant="16" id="8Xo-AI-caR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ekf-AR-7bx" secondAttribute="trailing" constant="16" id="IZF-vv-x2M"/>
+                                                    <constraint firstItem="sxC-iX-UkY" firstAttribute="leading" secondItem="XB7-24-VUC" secondAttribute="leading" constant="16" id="ZtJ-f0-FC4"/>
+                                                    <constraint firstItem="sxC-iX-UkY" firstAttribute="top" secondItem="XB7-24-VUC" secondAttribute="top" constant="8" id="bE6-GF-Jmq"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ekf-AR-7bx" secondAttribute="bottom" constant="8" id="eSd-Es-QEg"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="dN5-nA-bV0" firstAttribute="centerY" secondItem="KIF-a1-Eob" secondAttribute="centerY" id="2MW-4G-S4S"/>
-                                            <constraint firstAttribute="bottom" secondItem="dN5-nA-bV0" secondAttribute="bottom" constant="16" id="9KC-w7-u5d"/>
-                                            <constraint firstItem="dN5-nA-bV0" firstAttribute="leading" secondItem="KIF-a1-Eob" secondAttribute="leading" constant="16" id="IjE-VB-uXH"/>
-                                            <constraint firstItem="dN5-nA-bV0" firstAttribute="centerX" secondItem="KIF-a1-Eob" secondAttribute="centerX" id="PWT-F3-ZLc"/>
-                                            <constraint firstAttribute="trailing" secondItem="dN5-nA-bV0" secondAttribute="trailing" constant="16" id="nfe-x4-b6I"/>
-                                            <constraint firstItem="dN5-nA-bV0" firstAttribute="top" secondItem="KIF-a1-Eob" secondAttribute="top" constant="16" id="x7l-BH-txX"/>
+                                            <constraint firstItem="XB7-24-VUC" firstAttribute="top" secondItem="KIF-a1-Eob" secondAttribute="top" id="1qN-Qf-w0x"/>
+                                            <constraint firstAttribute="trailing" secondItem="XB7-24-VUC" secondAttribute="trailing" id="21h-OG-YsO"/>
+                                            <constraint firstItem="XB7-24-VUC" firstAttribute="centerX" secondItem="KIF-a1-Eob" secondAttribute="centerX" id="AKR-Cn-Z9v"/>
+                                            <constraint firstItem="XB7-24-VUC" firstAttribute="centerY" secondItem="KIF-a1-Eob" secondAttribute="centerY" id="XwN-1C-cIG"/>
+                                            <constraint firstItem="XB7-24-VUC" firstAttribute="leading" secondItem="KIF-a1-Eob" secondAttribute="leading" id="eKo-9A-jVO"/>
+                                            <constraint firstAttribute="bottom" secondItem="XB7-24-VUC" secondAttribute="bottom" id="ydl-Jp-QCB"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
@@ -118,7 +127,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bottomTextField" destination="Rnc-lO-v0W" id="xCo-vY-oEa"/>
+                        <outlet property="bottomTextField" destination="ekf-AR-7bx" id="2x3-xd-WTR"/>
                         <outlet property="bottomToolBar" destination="1KX-fc-feS" id="pj1-hb-nKE"/>
                         <outlet property="cancelButton" destination="3LE-PW-KeO" id="KjQ-va-HZN"/>
                         <outlet property="pickFromCameraButton" destination="kVb-e9-aHQ" id="ep2-4q-CYB"/>
@@ -126,7 +135,7 @@
                         <outlet property="pickerImageView" destination="Wxa-wg-ldI" id="whO-TH-4mb"/>
                         <outlet property="scrollView" destination="KIF-a1-Eob" id="lKA-9p-5fV"/>
                         <outlet property="shareButton" destination="aiv-i0-DXZ" id="9Re-3H-kst"/>
-                        <outlet property="topTextField" destination="ux6-re-1EH" id="18s-5A-5dC"/>
+                        <outlet property="topTextField" destination="sxC-iX-UkY" id="Jma-dP-IRo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
