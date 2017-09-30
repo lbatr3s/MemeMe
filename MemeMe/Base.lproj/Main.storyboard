@@ -33,7 +33,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XB7-24-VUC" userLabel="TextFieldContainer">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sxC-iX-UkY">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="sxC-iX-UkY">
                                                         <rect key="frame" x="16" y="8" width="343" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -42,7 +42,7 @@
                                                             <outlet property="delegate" destination="BYZ-38-t0r" id="aiJ-T0-cki"/>
                                                         </connections>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ekf-AR-7bx">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="ekf-AR-7bx">
                                                         <rect key="frame" x="16" y="534" width="343" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
