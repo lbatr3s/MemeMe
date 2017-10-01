@@ -140,7 +140,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="815.20000000000005" y="133.5832083958021"/>
+            <point key="canvasLocation" x="2436" y="609"/>
+        </scene>
+        <!--Sent Meme Collection View Controller-->
+        <scene sceneID="sU8-0K-HIL">
+            <objects>
+                <collectionViewController id="nmr-w0-uwm" customClass="SentMemeCollectionViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="rR2-l5-6ww">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g6e-dP-1wY">
+                            <size key="itemSize" width="100" height="100"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="sentMemeCollectionViewCellIdentifier" id="ckV-et-zdt" customClass="SentMemeCollectionViewCell" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="nmr-w0-uwm" id="4TN-7W-RmJ"/>
+                            <outlet property="delegate" destination="nmr-w0-uwm" id="DU2-tM-T3G"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="SAe-4m-ZKq"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jZJ-PG-xUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2436" y="-166"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3kE-5c-Wf8">
@@ -158,7 +193,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MuD-5p-aEd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78" y="134"/>
+            <point key="canvasLocation" x="1606" y="609"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0ma-ks-LJc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DMm-ks-iXz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cww-0E-BED">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nmr-w0-uwm" kind="relationship" relationship="rootViewController" id="TbV-Ti-c4z"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pOa-9o-v0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1607" y="-167"/>
         </scene>
     </scenes>
 </document>
