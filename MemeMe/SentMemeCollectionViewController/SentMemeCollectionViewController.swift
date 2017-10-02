@@ -10,11 +10,14 @@ import UIKit
 
 private let reuseIdentifier = "Cell"
 
-class SentMemeCollectionViewController: UICollectionViewController {
+class SentMemeCollectionViewController: UICollectionViewController, ShowsEditor {
 
+    var selector = #selector(showMemeEditor)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        addCreateMemeButton()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -38,6 +41,10 @@ class SentMemeCollectionViewController: UICollectionViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func showMemeEditor() {
+        
+    }
 
     // MARK: UICollectionViewDataSource
 

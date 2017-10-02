@@ -19,6 +19,7 @@
 		287189411F81B10F00B468B5 /* SentMemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287189401F81B10F00B468B5 /* SentMemeCollectionViewCell.swift */; };
 		287189441F81B39E00B468B5 /* SentMemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287189431F81B39E00B468B5 /* SentMemeTableViewController.swift */; };
 		287189461F81B3C000B468B5 /* SentMemeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287189451F81B3C000B468B5 /* SentMemeTableViewCell.swift */; };
+		287189491F81BA9200B468B5 /* ShowsEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287189481F81BA9200B468B5 /* ShowsEditor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		287189401F81B10F00B468B5 /* SentMemeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemeCollectionViewCell.swift; sourceTree = "<group>"; };
 		287189431F81B39E00B468B5 /* SentMemeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemeTableViewController.swift; sourceTree = "<group>"; };
 		287189451F81B3C000B468B5 /* SentMemeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemeTableViewCell.swift; sourceTree = "<group>"; };
+		287189481F81BA9200B468B5 /* ShowsEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		2809D3DA1F6AC1EB0089FB92 /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				287189471F81BA1C00B468B5 /* Common */,
 				287189421F81B34800B468B5 /* SentMemeTableViewController */,
 				2871893D1F81B08500B468B5 /* SentMemeCollectionViewController */,
 				286332571F76FCE600285C9A /* Model */,
@@ -162,6 +165,14 @@
 				287189451F81B3C000B468B5 /* SentMemeTableViewCell.swift */,
 			);
 			path = SentMemeTableViewController;
+			sourceTree = "<group>";
+		};
+		287189471F81BA1C00B468B5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				287189481F81BA9200B468B5 /* ShowsEditor.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +317,7 @@
 				2871893F1F81B0E000B468B5 /* SentMemeCollectionViewController.swift in Sources */,
 				2809D3DC1F6AC1EB0089FB92 /* AppDelegate.swift in Sources */,
 				287189441F81B39E00B468B5 /* SentMemeTableViewController.swift in Sources */,
+				287189491F81BA9200B468B5 /* ShowsEditor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

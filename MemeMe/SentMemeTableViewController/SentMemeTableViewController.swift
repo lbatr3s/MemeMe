@@ -8,11 +8,14 @@
 
 import UIKit
 
-class SentMemeTableViewController: UITableViewController {
+class SentMemeTableViewController: UITableViewController, ShowsEditor {
+    
+    var selector = #selector(showMemeEditor)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        addCreateMemeButton()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -23,6 +26,10 @@ class SentMemeTableViewController: UITableViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func showMemeEditor() {
+        
     }
 
     // MARK: - Table view data source
