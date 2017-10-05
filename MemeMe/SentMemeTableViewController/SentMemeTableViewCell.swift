@@ -9,6 +9,8 @@
 import UIKit
 
 class SentMemeTableViewCell: UITableViewCell {
+    
+    static let identifier = "sentMemeTableViewCellIdentifier"
 
     override func awakeFromNib() {
         super.awakeFromNib()
