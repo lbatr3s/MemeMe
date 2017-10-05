@@ -10,12 +10,13 @@ import UIKit
 
 class SentMemeTableViewController: UITableViewController, ShowsEditor {
     
-    fileprivate let memes: [Meme] = {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    fileprivate var memes: [Meme] {
         let memes = appDelegate.memes
         
         return memes
-    }()
+    }
     
     var selector = #selector(showMemeEditor)
 
@@ -28,6 +29,16 @@ class SentMemeTableViewController: UITableViewController, ShowsEditor {
     
     func showMemeEditor() {
         performSegue(withIdentifier: segueIdentifier, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let identifier = segue.identifier ?? ""
+        
+        if identifier == segueIdentifier {
+            let navigationController = segue.destination as! UINavigationController
+            let editorViewController = navigationController.viewControllers.first as? MemeEditorViewController
+            editorViewController?.delegate = self
+        }
     }
 }
 
@@ -42,13 +53,31 @@ extension SentMemeTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return memes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: SentMemeTableViewCell.identifier, for: indexPath) as! SentMemeTableViewCell
         
+        let meme = memes[indexPath.row]
+        cell.imageView?.image = meme.memedImage
+        cell.textLabel?.text = "\(meme.topText)...\(meme.bottomText)"
+        
         return cell
+    }
+}
+
+
+// MemeEditorViewControllerDelegate methods
+
+extension SentMemeTableViewController: MemeEditorViewControllerDelegate {
+    
+    func didFinishGeneratingMeme(controller: MemeEditorViewController, meme: Meme) {
+        controller.dismiss(animated: true)
+        tableView.reloadData()
+    }
+    
+    func didCancelGeneratingMeme(controller: MemeEditorViewController) {
+        controller.dismiss(animated: true)
     }
 }
