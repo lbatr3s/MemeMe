@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol MemeEditorViewControllerDelegate: class {
+    
+    func didFinishGeneratingMeme(controller: MemeEditorViewController, meme: Meme)
+    func didCancelGeneratingMeme(controller: MemeEditorViewController)
+}
+
 class MemeEditorViewController: UIViewController {
     
     @IBOutlet weak var pickerImageView: UIImageView!
@@ -44,7 +50,8 @@ class MemeEditorViewController: UIViewController {
                                                      NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40) ?? UIFont(),
                                                      NSStrokeWidthAttributeName: -1.0]
     
-    static let identifier = ""
+    weak var delegate: MemeEditorViewControllerDelegate?
+    
     
     // MARK: Lifecycle methods
 
@@ -87,6 +94,7 @@ class MemeEditorViewController: UIViewController {
         shareButton.isEnabled = false
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
+        delegate?.didCancelGeneratingMeme(controller: self)
     }
     
     // MARK: Private methods
@@ -104,6 +112,7 @@ class MemeEditorViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         appDelegate.memes.append(meme)
+        delegate?.didFinishGeneratingMeme(controller: self, meme: meme)
     }
     
     private func generateMemedImage() -> UIImage {
