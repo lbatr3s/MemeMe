@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wxa-wg-ldI">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXb-gi-4of">
                                 <rect key="frame" x="0.0" y="64" width="375" height="559"/>
@@ -106,10 +106,10 @@
                             <constraint firstAttribute="trailing" secondItem="1KX-fc-feS" secondAttribute="trailing" id="5iq-5y-6NT"/>
                             <constraint firstItem="1KX-fc-feS" firstAttribute="top" secondItem="JXb-gi-4of" secondAttribute="bottom" id="63X-Bn-Lhn"/>
                             <constraint firstItem="JXb-gi-4of" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8Le-Cu-wLq"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Wxa-wg-ldI" secondAttribute="bottom" id="Hah-3k-Int"/>
                             <constraint firstItem="1KX-fc-feS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="O2q-DK-l9t"/>
-                            <constraint firstItem="1KX-fc-feS" firstAttribute="top" secondItem="Wxa-wg-ldI" secondAttribute="bottom" id="awL-Iv-qV0"/>
+                            <constraint firstItem="Wxa-wg-ldI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bEB-yF-E2Y"/>
                             <constraint firstAttribute="trailing" secondItem="JXb-gi-4of" secondAttribute="trailing" id="lY9-K4-Jda"/>
-                            <constraint firstItem="Wxa-wg-ldI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="nn6-1M-ehu"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="1KX-fc-feS" secondAttribute="bottom" id="ttm-RC-HER"/>
                             <constraint firstItem="Wxa-wg-ldI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zay-VN-vOr"/>
                         </constraints>
@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436" y="609"/>
+            <point key="canvasLocation" x="2436" y="608.54572713643188"/>
         </scene>
         <!--Sent Meme Collection View Controller-->
         <scene sceneID="sU8-0K-HIL">
@@ -172,6 +172,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="SAe-4m-ZKq"/>
+                    <connections>
+                        <segue destination="TX2-hd-tGm" kind="presentation" identifier="memeEditorSegueIdentifier" id="7Lt-gm-lxc"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZJ-PG-xUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,6 +240,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="zoa-ag-7AC"/>
+                    <connections>
+                        <segue destination="TX2-hd-tGm" kind="presentation" identifier="memeEditorSegueIdentifier" id="7C0-Uw-GNl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EOq-kQ-4gH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -285,4 +291,7 @@
         <image name="collection" width="30" height="30"/>
         <image name="table" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="7C0-Uw-GNl"/>
+    </inferredMetricsTieBreakers>
 </document>
