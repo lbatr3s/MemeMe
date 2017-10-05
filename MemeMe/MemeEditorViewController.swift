@@ -44,6 +44,7 @@ class MemeEditorViewController: UIViewController {
                                                      NSFontAttributeName: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40) ?? UIFont(),
                                                      NSStrokeWidthAttributeName: -1.0]
     
+    static let identifier = ""
     
     // MARK: Lifecycle methods
 
