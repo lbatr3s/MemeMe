@@ -14,6 +14,8 @@ class SentMemeCollectionViewController: UICollectionViewController, ShowsEditor 
     
     private let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    fileprivate var selectedMeme: Meme!
+    
     fileprivate var memes: [Meme] {
         return appDelegate.memes
     }
@@ -27,6 +29,12 @@ class SentMemeCollectionViewController: UICollectionViewController, ShowsEditor 
         setupFlowLayout()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView?.reloadData()
+    }
+    
     func showMemeEditor() {
         performSegue(withIdentifier: segueIdentifier, sender: self)
     }
@@ -34,10 +42,16 @@ class SentMemeCollectionViewController: UICollectionViewController, ShowsEditor 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let identifier = segue.identifier ?? ""
         
-        if identifier == segueIdentifier {
+        switch identifier {
+        case segueIdentifier:
             let navigationController = segue.destination as! UINavigationController
             let editorViewController = navigationController.viewControllers.first as? MemeEditorViewController
             editorViewController?.delegate = self
+        case MemeDetailViewController.segueIdentifier:
+            let memeDetailViewController = segue.destination as! MemeDetailViewController
+            memeDetailViewController.meme = selectedMeme
+        default:
+            break
         }
     }
     
@@ -51,6 +65,10 @@ class SentMemeCollectionViewController: UICollectionViewController, ShowsEditor 
         collectionViewFlowLayout.minimumInteritemSpacing = space
         collectionViewFlowLayout.minimumLineSpacing = space
         collectionViewFlowLayout.itemSize = CGSize(width: dimension, height: dimension)
+    }
+    
+    fileprivate func showMemeDetail() {
+        performSegue(withIdentifier: MemeDetailViewController.segueIdentifier, sender: self)
     }
 }
 
@@ -82,6 +100,10 @@ extension SentMemeCollectionViewController {
 
 extension SentMemeCollectionViewController {
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedMeme = memes[indexPath.row]
+        showMemeDetail()
+    }
 }
 
 

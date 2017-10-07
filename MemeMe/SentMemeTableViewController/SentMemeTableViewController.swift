@@ -18,13 +18,22 @@ class SentMemeTableViewController: UITableViewController, ShowsEditor {
         return memes
     }
     
+    fileprivate var selectedMeme: Meme!
+    
     var selector = #selector(showMemeEditor)
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Sent Memes"
+        configureTableView()
         addCreateMemeButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
     
     func showMemeEditor() {
@@ -34,11 +43,32 @@ class SentMemeTableViewController: UITableViewController, ShowsEditor {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let identifier = segue.identifier ?? ""
         
-        if identifier == segueIdentifier {
+        switch identifier {
+        case segueIdentifier:
             let navigationController = segue.destination as! UINavigationController
             let editorViewController = navigationController.viewControllers.first as? MemeEditorViewController
             editorViewController?.delegate = self
+        case MemeDetailViewController.segueIdentifier:
+            let memeDetailViewController = segue.destination as! MemeDetailViewController
+            memeDetailViewController.meme = selectedMeme
+        default:
+            break
         }
+        
+        if identifier == segueIdentifier {
+        }
+    }
+    
+    
+    // MARK: Private methods
+    
+    private func configureTableView() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 40.0
+    }
+    
+    fileprivate func showMemeDetail() {
+        performSegue(withIdentifier: MemeDetailViewController.segueIdentifier, sender: self)
     }
 }
 
@@ -48,7 +78,6 @@ class SentMemeTableViewController: UITableViewController, ShowsEditor {
 extension SentMemeTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 1
     }
     
@@ -60,10 +89,15 @@ extension SentMemeTableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: SentMemeTableViewCell.identifier, for: indexPath) as! SentMemeTableViewCell
         
         let meme = memes[indexPath.row]
-        cell.imageView?.image = meme.memedImage
-        cell.textLabel?.text = "\(meme.topText)...\(meme.bottomText)"
+        cell.memeImageView.image = meme.memedImage
+        cell.memeLabel.text = "\(meme.topText)...\(meme.bottomText)"
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMeme = memes[indexPath.row]
+        showMemeDetail()
     }
 }
 
