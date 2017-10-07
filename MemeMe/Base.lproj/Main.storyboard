@@ -150,7 +150,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g6e-dP-1wY">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="3" id="g6e-dP-1wY">
                             <size key="itemSize" width="100" height="100"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -163,7 +163,21 @@
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HG9-9h-tbe">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="HG9-9h-tbe" firstAttribute="top" secondItem="ckV-et-zdt" secondAttribute="top" id="0fE-xx-hyg"/>
+                                    <constraint firstItem="HG9-9h-tbe" firstAttribute="leading" secondItem="ckV-et-zdt" secondAttribute="leading" id="H89-N3-Ci2"/>
+                                    <constraint firstAttribute="bottom" secondItem="HG9-9h-tbe" secondAttribute="bottom" id="TPI-iN-D2k"/>
+                                    <constraint firstAttribute="trailing" secondItem="HG9-9h-tbe" secondAttribute="trailing" id="gTt-gq-6Hu"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="memeImageView" destination="HG9-9h-tbe" id="wGt-Ig-lX0"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -173,12 +187,13 @@
                     </collectionView>
                     <navigationItem key="navigationItem" id="SAe-4m-ZKq"/>
                     <connections>
+                        <outlet property="collectionViewFlowLayout" destination="g6e-dP-1wY" id="nIT-o2-4WR"/>
                         <segue destination="TX2-hd-tGm" kind="presentation" identifier="memeEditorSegueIdentifier" id="7Lt-gm-lxc"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jZJ-PG-xUw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436" y="-166"/>
+            <point key="canvasLocation" x="2436" y="-166.8665667166417"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="9MW-1c-mLr">
@@ -297,6 +312,6 @@
         <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7C0-Uw-GNl"/>
+        <segue reference="7Lt-gm-lxc"/>
     </inferredMetricsTieBreakers>
 </document>

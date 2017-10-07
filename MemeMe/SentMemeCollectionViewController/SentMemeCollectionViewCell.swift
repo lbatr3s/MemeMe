@@ -10,4 +10,8 @@ import UIKit
 
 class SentMemeCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var memeImageView: UIImageView!
+    
+    static var identifier = "sentMemeCollectionViewCellIdentifier"
+    
 }

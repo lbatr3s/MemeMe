@@ -8,9 +8,15 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class SentMemeCollectionViewController: UICollectionViewController, ShowsEditor {
+    
+    @IBOutlet weak var collectionViewFlowLayout: UICollectionViewFlowLayout!
+    
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+    fileprivate var memes: [Meme] {
+        return appDelegate.memes
+    }
 
     var selector = #selector(showMemeEditor)
     
@@ -18,84 +24,77 @@ class SentMemeCollectionViewController: UICollectionViewController, ShowsEditor 
         super.viewDidLoad()
 
         addCreateMemeButton()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
+        setupFlowLayout()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func showMemeEditor() {
+        performSegue(withIdentifier: segueIdentifier, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let identifier = segue.identifier ?? ""
         
+        if identifier == segueIdentifier {
+            let navigationController = segue.destination as! UINavigationController
+            let editorViewController = navigationController.viewControllers.first as? MemeEditorViewController
+            editorViewController?.delegate = self
+        }
     }
+    
+    
+    // MARK: Private methods
+    
+    private func setupFlowLayout() {
+        let space: CGFloat = 3.0
+        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+        
+        collectionViewFlowLayout.minimumInteritemSpacing = space
+        collectionViewFlowLayout.minimumLineSpacing = space
+        collectionViewFlowLayout.itemSize = CGSize(width: dimension, height: dimension)
+    }
+}
 
-    // MARK: UICollectionViewDataSource
 
+// MARK: UICollectionViewDataSource
+
+extension SentMemeCollectionViewController {
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 0
+        return memes.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    
-        // Configure the cell
-    
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SentMemeCollectionViewCell.identifier, for: indexPath) as! SentMemeCollectionViewCell
+        let meme = memes[indexPath.row]
+        
+        cell.memeImageView.image = meme.memedImage
+        
         return cell
     }
+}
 
-    // MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
+// MARK: UICollectionViewDelegate
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
+extension SentMemeCollectionViewController {
     
-    }
-    */
+}
 
+
+// MARK: MemeEditorViewControllerDelegate methods
+
+extension SentMemeCollectionViewController: MemeEditorViewControllerDelegate {
+    
+    func didFinishGeneratingMeme(controller: MemeEditorViewController, meme: Meme) {
+        controller.dismiss(animated: true)
+        collectionView?.reloadData()
+    }
+    
+    func didCancelGeneratingMeme(controller: MemeEditorViewController) {
+        controller.dismiss(animated: true)
+    }
 }
