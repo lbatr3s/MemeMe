@@ -171,16 +171,36 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HG9-9h-tbe">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfQ-OS-ACt">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WVM-IW-Las">
+                                            <rect key="frame" x="0.0" y="79" width="100" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <constraints>
                                     <constraint firstItem="HG9-9h-tbe" firstAttribute="top" secondItem="ckV-et-zdt" secondAttribute="top" id="0fE-xx-hyg"/>
+                                    <constraint firstAttribute="trailing" secondItem="yfQ-OS-ACt" secondAttribute="trailing" id="6ec-ra-bBO"/>
+                                    <constraint firstAttribute="bottom" secondItem="WVM-IW-Las" secondAttribute="bottom" id="C8P-nY-beT"/>
+                                    <constraint firstItem="WVM-IW-Las" firstAttribute="leading" secondItem="ckV-et-zdt" secondAttribute="leading" id="Cgh-tq-WBC"/>
                                     <constraint firstItem="HG9-9h-tbe" firstAttribute="leading" secondItem="ckV-et-zdt" secondAttribute="leading" id="H89-N3-Ci2"/>
+                                    <constraint firstItem="yfQ-OS-ACt" firstAttribute="leading" secondItem="ckV-et-zdt" secondAttribute="leading" id="SkT-Ql-wKW"/>
                                     <constraint firstAttribute="bottom" secondItem="HG9-9h-tbe" secondAttribute="bottom" id="TPI-iN-D2k"/>
+                                    <constraint firstAttribute="trailing" secondItem="WVM-IW-Las" secondAttribute="trailing" id="c6f-O3-LxO"/>
+                                    <constraint firstItem="yfQ-OS-ACt" firstAttribute="top" secondItem="ckV-et-zdt" secondAttribute="top" id="ckf-7t-Rhy"/>
                                     <constraint firstAttribute="trailing" secondItem="HG9-9h-tbe" secondAttribute="trailing" id="gTt-gq-6Hu"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="bottomLabel" destination="WVM-IW-Las" id="9GT-e2-Oda"/>
                                     <outlet property="memeImageView" destination="HG9-9h-tbe" id="wGt-Ig-lX0"/>
+                                    <outlet property="topLabel" destination="yfQ-OS-ACt" id="Txa-5I-pMb"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -314,13 +334,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="eTW-8i-Piz">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <rect key="frame" x="16" y="64" width="343" height="603"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="eTW-8i-Piz" firstAttribute="centerX" secondItem="B0S-Cz-cHH" secondAttribute="centerX" id="SGu-Nm-c9d"/>
-                            <constraint firstItem="eTW-8i-Piz" firstAttribute="centerY" secondItem="B0S-Cz-cHH" secondAttribute="centerY" id="r1L-iZ-yyW"/>
+                            <constraint firstItem="ywm-jQ-wtV" firstAttribute="top" secondItem="eTW-8i-Piz" secondAttribute="bottom" id="IB0-oj-sRH"/>
+                            <constraint firstItem="eTW-8i-Piz" firstAttribute="leading" secondItem="B0S-Cz-cHH" secondAttribute="leadingMargin" id="OGI-Xk-vZv"/>
+                            <constraint firstItem="eTW-8i-Piz" firstAttribute="top" secondItem="9h6-Lq-Yys" secondAttribute="bottom" id="axf-Ha-zLP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eTW-8i-Piz" secondAttribute="trailing" id="maa-An-Zvz"/>
                         </constraints>
                     </view>
                     <connections>
